@@ -26,6 +26,7 @@ let Application = PIXI.Application,
     Text = PIXI.Text,
     TextStyle = PIXI.TextStyle;
 
+/*
 var rocketSound = new Howl({
       src: ['rocket.mp3'],
       sprite: {
@@ -43,10 +44,13 @@ var lesquinSound = new Howl({
         nonCauca : [219100, 1300]
       }
     });
+*/
+/*
 
 var sarabandeTech = new Howl({
   src : ['sounds/music/sarabande-tech.mp3']
 })
+*/
 
 class App extends Component {
   
@@ -216,7 +220,7 @@ class App extends Component {
     this.attacks.children.forEach((attack)=>{
       if (isCollide(bullet, attack) && bullet.touched === 0) {
         this.player.pls()
-        rocketSound.play('long')
+        //rocketSound.play('long')
         this.destroy('attacks', attack)
         bullet.touched+=1
         this.hitNb+=1
@@ -250,18 +254,18 @@ class App extends Component {
 
   this.fire.press = () => {
      this.launchBullet()
-     lesquinSound.stop(this.reemigPlay)
-     this.reemigPlay = lesquinSound.play('reemig')
+    // lesquinSound.stop(this.reemigPlay)
+    // this.reemigPlay = lesquinSound.play('reemig')
   }
 
   this.launchCosmo.press = () => {
-    lesquinSound.stop(this.cosmoPlay)
-    this.cosmoPlay = lesquinSound.play('cosmo')
+   // lesquinSound.stop(this.cosmoPlay)
+   // this.cosmoPlay = lesquinSound.play('cosmo')
   }
 
   this.launchNonCauca.press = () => {
-    lesquinSound.stop(this.nonCaucaPlay)
-   this.nonCaucaPlay = lesquinSound.play('nonCauca')
+   // lesquinSound.stop(this.nonCaucaPlay)
+  // this.nonCaucaPlay = lesquinSound.play('nonCauca')
   }
 
   this.left.press = () => {
@@ -313,7 +317,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Ultime space ballte</h1>
-        <div id="game" style={{margin:auto}}>
+        <div id="game" style={{margin:"auto"}}>
           
         </div>
       </div>
