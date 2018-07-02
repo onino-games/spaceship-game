@@ -5,6 +5,7 @@ const keyboard = (keyCode) => {
   key.isUp = true;
   key.press = undefined;
   key.release = undefined;
+  
   //The `downHandler`
   key.downHandler = event => {
     if (event.keyCode === key.code) {

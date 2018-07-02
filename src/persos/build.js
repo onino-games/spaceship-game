@@ -1,35 +1,32 @@
 import * as PIXI from 'pixi.js'
+import { SPRITE_SIZE_DEFAULT } from '../utils/constants';
 
 let resources = PIXI.loader.resources,
-    TextureCache = PIXI.utils.TextureCache,
     Sprite = PIXI.Sprite
-
 
 export const buildSprite = (opt) => {
    let newSprite = new Sprite(resources[opt.mainImage].texture);
-    newSprite.width=50
-    newSprite.height=50
-    Object.assign(newSprite, opt)
-    return newSprite
+    return Object.assign(newSprite,{
+      width : SPRITE_SIZE_DEFAULT,
+      height : SPRITE_SIZE_DEFAULT,
+      move : () => {
+        newSprite.x += newSprite.vx
+        newSprite.y += newSprite.vy
+      },
+      ...opt,
+    })
  }
 
+export const buildBullet = opt =>  buildSprite({
+    mainImage: "persos/missile.png",
+    touched : 0,
+    ...opt,
+  })
 
-export const buildBullet = (opt) => {
-  let newBullet = buildSprite(opt)
-  newBullet.move = () => {
-    newBullet.x += newBullet.vx
-  }
-  newBullet.touched=0
-  return newBullet
- }
-
-export const buildAttack = (opt) => {
-  const newAttack = buildSprite(opt)
-  newAttack.move = () => {
-    newAttack.x+=newAttack.vx
-  }
-  return newAttack
-}
+ export const buildAttack = opt => buildSprite({
+    mainImage: "persos/alien.png",
+    ...opt,
+  })
 
 
 

@@ -1,0 +1,22 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "sourceType": "module"
+  },
+
+  "plugins": [
+    "babel"
+  ],
+
+  "extends": [
+    "eslint:recommended"
+  ],
+  "env" : {
+    "browser": true
+  }
+}
+
