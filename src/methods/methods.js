@@ -4,6 +4,7 @@ import { EXPLOSION_LIFESPAN } from "../utils/constants.js";
 
   export const startGame = function() {
     this.gameState = this.play
+    //this.gameState = this.start
     //this.playMusic.play()
   }
 
@@ -40,6 +41,17 @@ import { EXPLOSION_LIFESPAN } from "../utils/constants.js";
     this.gameStartScene.visible = false
     this.gameOverScene.visible = false
     this.hitNb = 0
+  }
+
+  export const reset = function(){
+    this.gamePlayScene.visible = true
+    this.gameStartScene.visible = false
+    this.gameOverScene.visible = false
+    this.hitNb = 0
+    this.bulletNb = 0
+    this.accuracy = 0
+    this.app.stage.children.forEach(child => child.destroy)
+    this.setup()
   }
 
 

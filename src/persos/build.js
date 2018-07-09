@@ -29,7 +29,6 @@ export const buildBullet = opt =>  buildSprite({
   })
 
 
-
 export const  build = {
   bullet : buildBullet,
   attack : buildAttack

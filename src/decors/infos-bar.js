@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js'
 
 let Text = PIXI.Text,
-TextStyle = PIXI.TextStyle,
-Container = PIXI.Container;
+  TextStyle = PIXI.TextStyle,
+  Container = PIXI.Container;
 
 let style = new TextStyle({
   fontFamily: "Arial",
@@ -20,11 +20,10 @@ let style = new TextStyle({
 
 export const buildInfoBar = () => {
   const infoBar = new Container()
-  const hitNbScreen= new Text("0", style);
-  const accuracy= new Text("0", style);
-  accuracy.y=30
+  const hitNbScreen = new Text("0", style);
+  const accuracy = new Text("0", style);
+  accuracy.y = 30
   infoBar.addChild(hitNbScreen, accuracy)
   return infoBar
 }
 
-    

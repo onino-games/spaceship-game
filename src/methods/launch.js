@@ -17,6 +17,8 @@ export const launchBullet = function() {
 
     // Increment the number of launched bullets by one
     this.bulletNb += 1
+
+    this.computeAccuracy()
   }
 
   export const launchAttack = function() {

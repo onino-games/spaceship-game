@@ -55,7 +55,7 @@ class App {
 
     //Display
     this.hitNbScreen
-    this.accuracy
+    this.accuracy = 100
   }
 
   load = load.bind(this)

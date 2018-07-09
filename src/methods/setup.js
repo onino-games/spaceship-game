@@ -8,20 +8,17 @@ import { buildInfoBar } from "./../decors/infos-bar.js"
 import { buildStartScene } from "./../decors/start-scene.js"
 
 
-const SCREEN_WIDTH = CST.SCREEN_WIDTH
-const SCREEN_HEIGHT = CST.SCREEN_HEIGHT
-
 
 let Application = PIXI.Application,
-  Container = PIXI.Container;    
+  Container = PIXI.Container;
 
 
 const setup = function () {
 
   // BUILD APP
   this.app = new Application({
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
+    width: CST.SCREEN_WIDTH,
+    height: CST.SCREEN_HEIGHT,
     antialias: true,
     transparent: false,
     resolution: 1
@@ -33,6 +30,12 @@ const setup = function () {
   this.gameOverScene = new Container();
   this.app.stage.addChild(this.gameStartScene, this.gameScene, this.gameOverScene);
 
+  // GAME SCENE
+  var background = new PIXI.Sprite.fromImage(CST.IMG_BACKGROUND);
+  background.width = CST.SCREEN_WIDTH;
+  background.height = CST.SCREEN_HEIGHT;
+  this.gameScene.addChild(background);
+
   // BUILD INFOS DIPLAYED
   this.infoBar = buildInfoBar()
   this.hitNbScreen = this.infoBar.getChildAt(0)
@@ -41,15 +44,29 @@ const setup = function () {
 
   this.setupKeys()
 
-  document.body.appendChild(this.app.view);
+  const gameContainer = document.createElement('div')
+
+  gameContainer.style.width = "100%"
+  gameContainer.style.height = "100%"
+  gameContainer.style.display = "flex"
+  gameContainer.style.justifyContent = "center"
+  gameContainer.style.alignItems = "center"
+
+
+  const wrapper = document.createElement('div')
+
+  document.body.append(gameContainer);
+  wrapper.append(this.app.view)
+  gameContainer.append(wrapper)
+
 
   //Create the `this.player` sprite 
   this.player = buildPlayer({
-    mainImage: "persos/spaceship.png",
-    plsImage: "persos/spaceship.png"
+    mainImage: CST.IMG_PLAYER,
+    plsImage: CST.IMG_PLAYER,
   })
   this.enemy = buildEnemy({
-    mainImage: "persos/ovni.png"
+    mainImage: CST.IMG_ENEMY
   })
 
   this.gameScene.addChild(this.player, this.enemy);
