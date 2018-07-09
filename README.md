@@ -2,6 +2,8 @@ This project was bootstrapped with [webpack-es6-boilerplate](https://github.com/
 
 It is a small space battleship 2D game made for educatinal purpose.
 
+![Screenshot](space-battle.png)
+
 It uses the following js librairies: 
 
 pixi-js for easy manipulation of canvas tag
