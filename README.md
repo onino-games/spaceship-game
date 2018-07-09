@@ -2,7 +2,7 @@ This project was bootstrapped with [webpack-es6-boilerplate](https://github.com/
 
 It is a small space battleship 2D game made for educatinal purpose.
 
-![Screenshot](space-battle.png)
+![Screenshot](space-battle.gif)
 
 It uses the following js librairies: 
 
